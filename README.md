@@ -7,7 +7,7 @@ Application d'un classifieur K-Nearest Neighbors sur le dataset `bienetre.csv` p
 ```
 .
 ├── bienetre.csv          # dataset
-├── preprocessing.py      # exploration, split, normalisation
+├── preprocessing.py      # exploration et normalisation
 ├── knn.py                # entraînement et évaluation du KNN
 ├── requirements.txt
 └── README.md
@@ -28,7 +28,14 @@ python preprocessing.py
 python knn.py
 ```
 
-`preprocessing.py` génère des fichiers `.npy` (données scalées) qui sont ensuite chargés par `knn.py`.
+`preprocessing.py` génère un fichier `data.npz` (données normalisées) qui est ensuite chargé par `knn.py`.
+
+## Démarche
+
+1. **Exploration** : vérification des NaN, doublons, distribution de la target
+2. **Normalisation** avec `StandardScaler` (le KNN est sensible aux échelles)
+3. **Choix de K** par validation croisée 5-fold sur K = 1 à 20
+4. **Évaluation** du modèle final : accuracy, classification report, matrice de confusion
 
 ## Démarche
 

@@ -24,4 +24,6 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
+# Csv
 *.csv
+.npz
